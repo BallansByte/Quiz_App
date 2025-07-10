@@ -1,0 +1,27 @@
+# Ignore virtual environment
+venv/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables
+.env
+
+# PyCharm-specific
+.idea/
+
+# SQLite database files (if used)
+*.sqlite3
+instance/
+
+# Flask migration cache
+migrations/__pycache__/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
