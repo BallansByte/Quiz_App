@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>Quiz App</title>
+</head>
+<body>
+{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		<ul>
+		{% for category, message in messages %}
+			<li><strong>{{ category }}:</strong> {{ message }}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+{% endwith %}
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">Welcome to the Quiz App</h1>
+<div class="text-center mt-4">
+	<a href="{{ url_for('main.register') }}" class="btn btn-primary">Register</a>
+	<a href="{{ url_for('main.login') }}" class="btn btn-success">Login</a>
+</div>
+{% endblock %}
+
+	<h1>Welcome to the Quiz App!</h1>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz Result</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 rounded-3 text-center">
+        <h2 class="mb-4">🎉 Quiz Completed!</h2>
+
+        <p class="fs-4">Your Score:</p>
+        <h1 class="display-3">{{ score }} / {{ total }}</h1>
+
+        {% if score == total %}
+            <p class="text-success mt-3 fw-bold">Excellent! You nailed it! 🏆</p>
+        {% elif score >= total // 2 %}
+            <p class="text-primary mt-3 fw-bold">Nice work! You did well! 👍</p>
+        {% else %}
+            <p class="text-danger mt-3 fw-bold">Keep practicing! 💪</p>
+        {% endif %}
+
+        <div class="mt-4">
+            <a href="{{ url_for('main.quiz') }}" class="btn btn-success me-2">Retake Quiz</a>
+            <a href="{{ url_for('main.dashboard') }}" class="btn btn-secondary me-2">Dashboard</a>
+            <a href="{{ url_for('main.logout') }}" class="btn btn-danger">Log Out</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

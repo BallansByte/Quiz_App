@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Hello, {{ username }}!</h2>
+    <p>Welcome to your dashboard.</p>
+
+    <a href="{{ url_for('main.quiz') }}" class="btn btn-primary">Start Quiz</a>
+    <a href="{{ url_for('main.logout') }}" class="btn btn-danger ms-3">Logout</a>
+    <hr>
+
+    <h4 class="mt-4">Your Past Quiz Results</h4>
+    {% if results %}
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Score</th>
+                    <th>Date Taken</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.score }}</td>
+                    <td>{{ result.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-muted">No quiz results yet.</p>
+    {% endif %}
+{% endblock %}
